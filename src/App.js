@@ -12,10 +12,7 @@ function App() {
       <div className='container'>
         <div className='text-center mb-5 pt-4' style={{ color: '#353535' }}>
           <h1 className='mb-3'>
-            Projeto{' '}
-            <span style={{ color: '#84ba7e', fontWeight: 'bold' }}>
-              Viagem a Trabalho
-            </span>{' '}
+            Projeto <span className='bold-text'>Viagem a Trabalho</span>{' '}
           </h1>
           <p>
             Luciana foi promovida a gerente executiva da empresa GRAFOS-LTDA o
@@ -30,6 +27,7 @@ function App() {
         </div>
         <div className='row'>
           <div className='col-6'>
+            <h4 className='mb-4'>Selecione os estados</h4>
             <CheckboxSVGMap
               map={Brazil}
               onChange={(values) => {
@@ -38,12 +36,19 @@ function App() {
             />
           </div>
           <div className='col-6'>
+            <h4 className='mb-4'>Estados selecionados</h4>
             <div className='selected-stages'>
               {selectedStages.map((selectedStage, i) => (
                 <li className='stage-item' key={i}>{`${i + 1}. ${
                   selectedStage.ariaLabel
                 }`}</li>
               ))}
+            </div>
+            <div className='d-flex justify-content-center align-items-center'>
+              <div className='start-btn'>Definir melhor percurso</div>
+            </div>
+            <div className='d-flex justify-content-center align-items-center'>
+              <div className='reset-btn'>Fazer novo percurso</div>
             </div>
           </div>
         </div>
