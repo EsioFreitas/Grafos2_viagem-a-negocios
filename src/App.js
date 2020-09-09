@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Brazil from '@svg-maps/brazil';
-import { SVGMap } from 'react-svg-map';
+import { CheckboxSVGMap } from 'react-svg-map';
 import 'react-svg-map/lib/index.css';
 
 function App() {
+  const [selectedStages, setSelectedStages] = useState([]);
+
   return (
     <div className='bg-light' style={{ height: '100vh' }}>
       <div className='container'>
-        <div className='text-center' style={{ color: '#353535' }}>
-          <h1 className='mb-3 pt-3'>
+        <div className='text-center mb-5 pt-4' style={{ color: '#353535' }}>
+          <h1 className='mb-3'>
             Projeto{' '}
             <span style={{ color: '#84ba7e', fontWeight: 'bold' }}>
               Viagem a Trabalho
@@ -27,10 +29,23 @@ function App() {
           </p>
         </div>
         <div className='row'>
-          <div className='col'>
-            <SVGMap map={Brazil} />
+          <div className='col-6'>
+            <CheckboxSVGMap
+              map={Brazil}
+              onChange={(values) => {
+                setSelectedStages(values);
+              }}
+            />
           </div>
-          <div className='col'></div>
+          <div className='col-6'>
+            <div className='selected-stages'>
+              {selectedStages.map((selectedStage, i) => (
+                <li className='stage-item' key={i}>{`${i + 1}. ${
+                  selectedStage.ariaLabel
+                }`}</li>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

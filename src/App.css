@@ -1,0 +1,9 @@
+.selected-stages {
+  display: grid;
+  grid-template-columns: repeat(3, 0fr);
+}
+
+.stage-item {
+  list-style: none;
+  width: 11rem;
+}
