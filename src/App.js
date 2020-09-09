@@ -19,6 +19,8 @@ function App() {
     } else {
       setState(NONE_STAGE);
     }
+
+    console.log(selectedStages);
   }, [selectedStages]);
 
   const setRoute = () => {
@@ -27,6 +29,8 @@ function App() {
 
   const resetRoute = () => {
     setState(NONE_STAGE);
+    selectedStages.map((selectedStage) => (selectedStage.ariaChecked = false));
+    setSelectedStages([]);
   };
 
   return (
@@ -49,7 +53,7 @@ function App() {
         </div>
         <div className='row'>
           <div className='col-6'>
-            <h3 className='mb-4 subtitle'>Selecione os estados</h3>
+            <h3 className='mb-4 subtitle text-center'>Selecione os estados</h3>
             <CheckboxSVGMap
               map={Brazil}
               onChange={(values) => {
@@ -58,7 +62,7 @@ function App() {
             />
           </div>
           <div className='col-6'>
-            <h3 className='mb-4 subtitle'>Estados selecionados</h3>
+            <h3 className='mb-4 subtitle text-center'>Estados selecionados</h3>
             <div className='selected-stages'>
               {state === SELECTED_STAGE &&
                 selectedStages.map((selectedStage, i) => (
@@ -84,7 +88,9 @@ function App() {
                   );
                 })}
             </div>
-            {state === NONE_STAGE && <p>Selecione 2 ou mais estados no mapa</p>}
+            {state === NONE_STAGE && (
+              <p className='text-center'>Selecione 2 ou mais estados no mapa</p>
+            )}
 
             {state === SELECTED_STAGE && (
               <div className='d-flex justify-content-center align-items-center'>
