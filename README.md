@@ -14,7 +14,7 @@
 
 Luciana foi promovida a gerente executiva da empresa GRAFOS-LTDA o qual tem filiais em vários estados do Brasil. Nessa empresa, há o costume dos gerentes visitarem todas as filiais uma vez por ano. No entanto, Luciana precisa saber qual é o melhor percurso, ou seja, o caminho que minimize as distâncias/custos dessa viagem.
 
-Luciana irá informar quais são os estados que a empresa tem filiais. O serviço da aplicação será encontrar o melhor caminho (custo/benefício) que ela deverá percorrer. 
+Luciana irá informar quais são os estados que a empresa tem filiais. O serviço da aplicação será encontrar o melhor caminho (custo/benefício) que ela deverá percorrer.
 
 ## Screenshots
 
@@ -37,8 +37,6 @@ $ npm start
 
 ## Uso
 
-1.
-2.
-3.
-
-## Outros
+1. Selecione 2 ou mais estados que Luciana deve ir
+2. Selecione para definir o percurso
+3. Para fazer um novo ercurso, selecione "Fazer novo percurso"
