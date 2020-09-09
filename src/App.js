@@ -63,14 +63,14 @@ function App() {
           </div>
           <div className='col-6'>
             <h3 className='mb-4 subtitle text-center'>Estados selecionados</h3>
-            <div className='selected-stages'>
+            <ul className='selected-stages'>
               {state === SELECTED_STAGE &&
                 selectedStages.map((selectedStage, i) => (
-                  <li className='stage-item' key={i}>{`${i + 1}. ${
-                    selectedStage.ariaLabel
-                  }`}</li>
+                  <li className='stage-item' key={i}>
+                    {selectedStage.ariaLabel}
+                  </li>
                 ))}
-            </div>
+            </ul>
 
             <div className='selected-stages-route'>
               {state === CAN_RESET_STAGE &&
