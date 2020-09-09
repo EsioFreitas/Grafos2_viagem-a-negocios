@@ -1,11 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Brazil from '@svg-maps/brazil';
 import { CheckboxSVGMap } from 'react-svg-map';
 import 'react-svg-map/lib/index.css';
 
+const NONE_STAGE = 0;
+const SELECTED_STAGE = 1;
+const CAN_RESET_STAGE = 2;
+
 function App() {
   const [selectedStages, setSelectedStages] = useState([]);
+  const [state, setState] = useState(NONE_STAGE);
+
+  useEffect(() => {
+    console.log(selectedStages.length);
+    if (selectedStages.length > 1) {
+      setState(SELECTED_STAGE);
+    } else {
+      setState(NONE_STAGE);
+    }
+  }, [selectedStages]);
+
+  const setRoute = () => {
+    setState(CAN_RESET_STAGE);
+  };
+
+  const resetRoute = () => {
+    setState(NONE_STAGE);
+  };
 
   return (
     <div className='bg-light' style={{ height: '100vh' }}>
@@ -27,7 +49,7 @@ function App() {
         </div>
         <div className='row'>
           <div className='col-6'>
-            <h4 className='mb-4'>Selecione os estados</h4>
+            <h3 className='mb-4 subtitle'>Selecione os estados</h3>
             <CheckboxSVGMap
               map={Brazil}
               onChange={(values) => {
@@ -36,20 +58,48 @@ function App() {
             />
           </div>
           <div className='col-6'>
-            <h4 className='mb-4'>Estados selecionados</h4>
+            <h3 className='mb-4 subtitle'>Estados selecionados</h3>
             <div className='selected-stages'>
-              {selectedStages.map((selectedStage, i) => (
-                <li className='stage-item' key={i}>{`${i + 1}. ${
-                  selectedStage.ariaLabel
-                }`}</li>
-              ))}
+              {state === SELECTED_STAGE &&
+                selectedStages.map((selectedStage, i) => (
+                  <li className='stage-item' key={i}>{`${i + 1}. ${
+                    selectedStage.ariaLabel
+                  }`}</li>
+                ))}
             </div>
-            <div className='d-flex justify-content-center align-items-center'>
-              <div className='start-btn'>Definir melhor percurso</div>
+
+            <div className='selected-stages-route'>
+              {state === CAN_RESET_STAGE &&
+                selectedStages.map((selectedStage, i) => {
+                  let title = selectedStage.id.toUpperCase();
+
+                  if (i !== selectedStages.length - 1) {
+                    title += ' > ';
+                  }
+
+                  return (
+                    <div className='stage-item-route' key={i}>
+                      {title}
+                    </div>
+                  );
+                })}
             </div>
-            <div className='d-flex justify-content-center align-items-center'>
-              <div className='reset-btn'>Fazer novo percurso</div>
-            </div>
+            {state === NONE_STAGE && <p>Selecione 2 ou mais estados no mapa</p>}
+
+            {state === SELECTED_STAGE && (
+              <div className='d-flex justify-content-center align-items-center'>
+                <div className='start-btn' onClick={setRoute}>
+                  Definir melhor percurso
+                </div>
+              </div>
+            )}
+            {state === CAN_RESET_STAGE && (
+              <div className='d-flex justify-content-center align-items-center'>
+                <div className='reset-btn' onClick={resetRoute}>
+                  Fazer novo percurso
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

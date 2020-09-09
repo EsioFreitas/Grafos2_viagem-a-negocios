@@ -13,6 +13,11 @@
   font-weight: bold;
 }
 
+.subtitle {
+  color: #ecaf2b;
+  font-weight: bold;
+}
+
 .start-btn {
   background-color: #74a16f;
   color: #f7f7f7;
@@ -55,4 +60,15 @@
   background-color: #ecaf2b;
   transition: all 0.3s ease-in-out;
   box-shadow: 1px 3px 3px #353535;
+}
+
+.selected-stages-route {
+  display: flex;
+  justify-content: center;
+}
+
+.stage-item-route {
+  margin-right: 0.3rem;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
