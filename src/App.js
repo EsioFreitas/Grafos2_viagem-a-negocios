@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import Brazil from '@svg-maps/brazil';
 import { CheckboxSVGMap } from 'react-svg-map';
@@ -11,6 +11,7 @@ const CAN_RESET_STAGE = 2;
 function App() {
   const [selectedStages, setSelectedStages] = useState([]);
   const [state, setState] = useState(NONE_STAGE);
+  const mapEl = useRef(null);
 
   useEffect(() => {
     console.log(selectedStages.length);
@@ -21,6 +22,7 @@ function App() {
     }
 
     console.log(selectedStages);
+    console.log(mapEl);
   }, [selectedStages]);
 
   const setRoute = () => {
@@ -29,7 +31,7 @@ function App() {
 
   const resetRoute = () => {
     setState(NONE_STAGE);
-    selectedStages.map((selectedStage) => (selectedStage.ariaChecked = false));
+    mapEl.current.state.selectedLocations = [];
     setSelectedStages([]);
   };
 
@@ -55,6 +57,7 @@ function App() {
           <div className='col-6'>
             <h3 className='mb-4 subtitle text-center'>Selecione os estados</h3>
             <CheckboxSVGMap
+              ref={mapEl}
               map={Brazil}
               onChange={(values) => {
                 setSelectedStages(values);

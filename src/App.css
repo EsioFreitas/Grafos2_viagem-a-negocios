@@ -64,6 +64,7 @@
 .selected-stages-route {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .stage-item-route {
