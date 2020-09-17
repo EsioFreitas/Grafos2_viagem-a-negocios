@@ -1314,6 +1314,11 @@
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.3.tgz#5405ee8e444ed212db44e79351f0c70a582aae25"
   integrity sha512-DetpxZw1fzPD5xUBrIAoplLChO2VB8DlL5Gg+I1IR9b2wPqYIca2WSUxL5g1vLeR4MsQq1NeWriXAVffV+U1Fw==
 
+"@svg-maps/brazil@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@svg-maps/brazil/-/brazil-1.0.1.tgz#19a5e075e77a8491eeeaed906a9aa9f4d437e99d"
+  integrity sha512-prGIaDZWeV1VP0Qqm9nffOmZ2w+Ax5KgeOkJCmXkh3+DuLx4lwxxSOyKa3Qcldb2x9a19Mn554mISY7C3KcYkg==
+
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@svgr/babel-plugin-add-jsx-attribute/-/babel-plugin-add-jsx-attribute-4.2.0.tgz#dadcb6218503532d6884b210e7f3c502caaa44b1"
@@ -8667,6 +8672,13 @@ react-scripts@3.4.3:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
+
+react-svg-map@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/react-svg-map/-/react-svg-map-2.1.2.tgz#e5f0b3b2fddb9deb226b64288b5aaca9af5d727a"
+  integrity sha512-nLp4Ih52LhpEGDAMDf0I1d2/0WQMTbcegbk02AhIarFkKRNQs4L4wCX3xT1sXGIK7XFVMRv8xM5XoWMxGGSr0g==
+  dependencies:
+    prop-types "^15.7.2"
 
 react@^16.13.1:
   version "16.13.1"

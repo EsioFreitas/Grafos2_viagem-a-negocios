@@ -3,6 +3,7 @@ import './App.css';
 import Brazil from '@svg-maps/brazil';
 import { CheckboxSVGMap } from 'react-svg-map';
 import 'react-svg-map/lib/index.css';
+import createGraph from './graph/createGraph';
 
 const NONE_STAGE = 0;
 const SELECTED_STAGE = 1;
@@ -24,6 +25,10 @@ function App() {
     console.log(selectedStages);
     console.log(mapEl);
   }, [selectedStages]);
+
+  useEffect(() => {
+    createGraph();
+  }, [])
 
   const setRoute = () => {
     setState(CAN_RESET_STAGE);
