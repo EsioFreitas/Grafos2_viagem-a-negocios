@@ -14,25 +14,23 @@ const CAN_RESET_STAGE = 2;
 function App() {
   const [selectedStages, setSelectedStages] = useState([]);
   const [state, setState] = useState(NONE_STAGE);
+  const [answer, setAnswer] = useState(null);
   const mapEl = useRef(null);
 
   useEffect(() => {
-    console.log(selectedStages.length);
-    if (selectedStages.length > 1) {
+    if (selectedStages.length >= 2) {
       setState(SELECTED_STAGE);
     } else {
       setState(NONE_STAGE);
     }
   }, [selectedStages]);
 
-  useEffect(() => {
-    const graph = createGraph();
-    const result = graph.Dijkstras('to', 'sp');
-    console.log(result);
-  }, [])
-
   const setRoute = () => {
     setState(CAN_RESET_STAGE);
+
+    const graph = createGraph();
+    const result = graph.Dijkstras(selectedStages[0].id, selectedStages[1].id);
+    setAnswer(result)
   };
 
   const resetRoute = () => {
@@ -80,6 +78,10 @@ function App() {
               ref={mapEl}
               map={Brazil}
               onChange={(values) => {
+                console.log(values.length)
+                if (values.length > 2) {
+                  values.shift()
+                }
                 setSelectedStages(values);
               }}
             />
@@ -97,11 +99,13 @@ function App() {
 
             <div className='selected-stages-route'>
               {state === CAN_RESET_STAGE &&
-                selectedStages.map((selectedStage, i) => {
-                  let title = selectedStage.id.toUpperCase();
+                answer.map((selectedStage, i) => {
+                  let title = selectedStage.toUpperCase();
 
-                  if (i !== selectedStages.length - 1) {
+                  if (i !== answer.length - 1) {
                     title += ' > ';
+                    title += distances[`${selectedStage}-${answer[i+1]}`]
+                    title += 'km > ';
                   }
 
                   return (
