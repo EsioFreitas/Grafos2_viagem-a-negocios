@@ -21,9 +21,6 @@ function App() {
     } else {
       setState(NONE_STAGE);
     }
-
-    console.log(selectedStages);
-    console.log(mapEl);
   }, [selectedStages]);
 
   useEffect(() => {

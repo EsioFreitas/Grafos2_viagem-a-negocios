@@ -1,7 +1,6 @@
 import Brazil from '@svg-maps/brazil';
 
 export default function createGraph() {
-    console.log(Brazil)
     Brazil.locations = Brazil.locations.map(location => {
         switch (location.id) {
             case 'ac':
@@ -20,7 +19,7 @@ export default function createGraph() {
                 location.neighbours = Brazil.locations.filter(loc => ['se', 'al', 'pe', 'pi', 'to', 'go', 'mg', 'es'].includes(loc.id))
                 break;
             case 'ce':
-                location.neighbours = Brazil.locations.filter(loc => ['rn',, 'pb', 'pe', 'pi'].includes(loc.id))
+                location.neighbours = Brazil.locations.filter(loc => ['rn', 'pb', 'pe', 'pi'].includes(loc.id))
                 break;
             case 'df':
                 location.neighbours = Brazil.locations.filter(loc => ['go'].includes(loc.id))
@@ -84,6 +83,8 @@ export default function createGraph() {
                 break;
             case 'to':
                 location.neighbours = Brazil.locations.filter(loc => ['pa', 'mt', 'go', 'ba', 'pi', 'ma'].includes(loc.id))
+                break;
+            default:
                 break;
         }
         return location;
