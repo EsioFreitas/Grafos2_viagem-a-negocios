@@ -25,6 +25,7 @@ function App() {
 
   useEffect(() => {
     createGraph();
+    console.log(Brazil)
   }, [])
 
   const setRoute = () => {
