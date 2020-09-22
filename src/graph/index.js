@@ -1,5 +1,3 @@
-import states from '../states';
-import distances from '../distances';
 import PriorityQueue from './PriorityQueue';
 
 export default class Graph {
