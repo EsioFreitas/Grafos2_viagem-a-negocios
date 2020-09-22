@@ -3,7 +3,9 @@ import './App.css';
 import Brazil from '@svg-maps/brazil';
 import { CheckboxSVGMap } from 'react-svg-map';
 import 'react-svg-map/lib/index.css';
-import createGraph from './graph/createGraph';
+import Graph from './graph';
+import distances from './distances';
+import states from './states';
 
 const NONE_STAGE = 0;
 const SELECTED_STAGE = 1;
@@ -24,8 +26,9 @@ function App() {
   }, [selectedStages]);
 
   useEffect(() => {
-    createGraph();
-    console.log(Brazil)
+    const graph = createGraph();
+    const result = graph.Dijkstras('to', 'sp');
+    console.log(result);
   }, [])
 
   const setRoute = () => {
@@ -37,6 +40,20 @@ function App() {
     mapEl.current.state.selectedLocations = [];
     setSelectedStages([]);
   };
+
+  const createGraph = () => {
+    const graph = new Graph();
+
+    states.forEach(state => {
+        graph.addNode(state);
+    })
+    Object.keys(distances).forEach(travel => {
+        const origin = travel[0] + travel[1];
+        const destination = travel[3] + travel[4];
+        graph.addEdge(origin, destination, distances[`${origin}-${destination}`])
+    })
+    return graph;
+}
 
   return (
     <div className='bg-light' style={{ height: '100vh' }}>

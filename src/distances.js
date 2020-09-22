@@ -30,7 +30,6 @@ export default {
     'go-to': 874,
     'go-mt': 934,
     'go-ms': 935,
-    'go-sp': 926,
     'go-mg': 906,
     'go-ba': 1643,
     'ma-pa': 806,
