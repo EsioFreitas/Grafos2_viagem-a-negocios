@@ -30,6 +30,10 @@ function App() {
 
     const graph = createGraph();
     const result = graph.Dijkstras(selectedStages[0].id, selectedStages[1].id);
+
+    const selectedPaths = []
+    result.forEach(state => selectedPaths.push(document.getElementById(state)))
+    mapEl.current.state.selectedLocations = selectedPaths
     setAnswer(result)
   };
 
