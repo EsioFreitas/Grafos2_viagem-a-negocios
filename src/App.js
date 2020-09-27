@@ -102,22 +102,35 @@ function App() {
             </ul>
 
             <div className='selected-stages-route'>
-              {state === CAN_RESET_STAGE &&
-                answer.map((selectedStage, i) => {
-                  let title = selectedStage.toUpperCase();
-
-                  if (i !== answer.length - 1) {
-                    title += ' > ';
-                    title += distances[`${selectedStage}-${answer[i+1]}`]
-                    title += 'km > ';
-                  }
-
-                  return (
-                    <div className='stage-item-route' key={i}>
-                      {title}
-                    </div>
-                  );
-                })}
+            {state === CAN_RESET_STAGE && (
+                <table className='table table-hover'>
+                  <thead>
+                    <tr>
+                      <th className='text-center'>Origem</th>
+                      <th className='text-center'>Chegada</th>
+                      <th className='text-center'>Quilometros</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {answer.map((selectedStage, i) => {
+                      if (i === answer.length - 1) return null;
+                      return (
+                        <tr key={i}>
+                          <td className='text-center'>
+                            {selectedStage.toUpperCase()}
+                          </td>
+                          <td className='text-center'>
+                            {answer[i + 1].toUpperCase()}
+                          </td>
+                          <td className='text-center'>
+                            {distances[`${selectedStage}-${answer[i + 1]}`]}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              )}
             </div>
             {state === NONE_STAGE && (
               <p className='text-center'>Selecione 2 ou mais estados no mapa</p>
