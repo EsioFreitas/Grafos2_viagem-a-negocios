@@ -65,14 +65,9 @@ function App() {
             Projeto <span className='bold-text'>Viagem a Trabalho</span>{' '}
           </h1>
           <p>
-            Luciana foi promovida a gerente executiva da empresa GRAFOS-LTDA o
-            qual tem filiais em vários estados do Brasil. Nessa empresa, há o
-            costume dos gerentes visitarem todas as filiais uma vez por ano. No
-            entanto, Luciana precisa saber qual é o melhor percurso, ou seja, o
-            caminho que minimize as distâncias/custos dessa viagem. Luciana irá
-            informar quais são os estados que a empresa tem filiais. O serviço
-            da aplicação será encontrar o melhor caminho (custo/benefício) que
-            ela deverá percorrer.
+            Luciana deseja realizar uma viagem de carro, porém luciana deseja conhecer a capital de cada estado por qual passar.
+            Informe qual o estado de origem de Luciana e qual o estado de destino, a aplicação irá se responsabilizar por dizer
+            qual será o menor trajeto, passando pelas capitais da origem ao destino desejado.
           </p>
         </div>
         <div className='row'>
@@ -82,7 +77,6 @@ function App() {
               ref={mapEl}
               map={Brazil}
               onChange={(values) => {
-                console.log(values.length)
                 if (values.length > 2) {
                   values.shift()
                 }
