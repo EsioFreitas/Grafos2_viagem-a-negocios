@@ -12,17 +12,20 @@
 
 ## Sobre
 
-Luciana foi promovida a gerente executiva da empresa GRAFOS-LTDA o qual tem filiais em vários estados do Brasil. Nessa empresa, há o costume dos gerentes visitarem todas as filiais uma vez por ano. No entanto, Luciana precisa saber qual é o melhor percurso, ou seja, o caminho que minimize as distâncias/custos dessa viagem.
+Luciana foi promovida a nova gerente executiva na empresa o qual trabalha. Essa empresa tem a cutura de que quando há um novo gerente, ele tem que ir em uma filial escolhida para saber o andamento das atividades e retirar métricas. No entanto, Luciana quer mais! Como vai viajar de carro e sabe que todas as filiais ficam nas capitais, ela deseja passar por todas as filiais dos estados que passar, desde que esse percurso seja o menor possível. Informe qual o estado de origem de Luciana e qual o estado de destino.
 
-Luciana irá informar quais são os estados que a empresa tem filiais. O serviço da aplicação será encontrar o melhor caminho (custo/benefício) que ela deverá percorrer.
+A aplicação irá se responsabilizar por dizer qual será o menor trajeto, passando pelas capitais da origem ao destino desejado.
 
 ## Screenshots
+
+![](https://github.com/projeto-de-algoritmos/Grafos2_viagem-a-negocios/blob/master/assets/img/Captura%20de%20tela%20de%202020-09-28%2018-39-40.png)
+![](https://github.com/projeto-de-algoritmos/Grafos2_viagem-a-negocios/blob/master/assets/img/Captura%20de%20tela%20de%202020-09-28%2018-41-01.png)
 
 ## Instalação
 
 **Linguagem**: JavaScript<br>
 
-Fizemos o deploy da aplicação para facilitar o uso dela [AQUI](#).
+Fizemos o deploy da aplicação para facilitar o uso dela [AQUI](https://viagemanegocios.netlify.app/).
 No entanto, caso queira rodá-la, rode as linhas de comando:
 
 ```ssh
@@ -37,6 +40,6 @@ $ npm start
 
 ## Uso
 
-1. Selecione 2 ou mais estados que Luciana deve ir
-2. Selecione para definir o percurso
+1. Selecione 2 estados
+2. Selecione "Definir melhor percurso"
 3. Para fazer um novo ercurso, selecione "Fazer novo percurso"
