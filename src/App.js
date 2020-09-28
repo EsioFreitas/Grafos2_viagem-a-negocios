@@ -31,10 +31,12 @@ function App() {
     const graph = createGraph();
     const result = graph.Dijkstras(selectedStages[0].id, selectedStages[1].id);
 
-    const selectedPaths = []
-    result.forEach(state => selectedPaths.push(document.getElementById(state)))
-    mapEl.current.state.selectedLocations = selectedPaths
-    setAnswer(result)
+    const selectedPaths = [];
+    result.forEach((state) =>
+      selectedPaths.push(document.getElementById(state))
+    );
+    mapEl.current.state.selectedLocations = selectedPaths;
+    setAnswer(result);
   };
 
   const resetRoute = () => {
@@ -46,16 +48,16 @@ function App() {
   const createGraph = () => {
     const graph = new Graph();
 
-    states.forEach(state => {
-        graph.addNode(state);
-    })
-    Object.keys(distances).forEach(travel => {
-        const origin = travel[0] + travel[1];
-        const destination = travel[3] + travel[4];
-        graph.addEdge(origin, destination, distances[`${origin}-${destination}`])
-    })
+    states.forEach((state) => {
+      graph.addNode(state);
+    });
+    Object.keys(distances).forEach((travel) => {
+      const origin = travel[0] + travel[1];
+      const destination = travel[3] + travel[4];
+      graph.addEdge(origin, destination, distances[`${origin}-${destination}`]);
+    });
     return graph;
-}
+  };
 
   return (
     <div className='bg-light' style={{ height: '100vh' }}>
@@ -65,9 +67,11 @@ function App() {
             Projeto <span className='bold-text'>Viagem a Trabalho</span>{' '}
           </h1>
           <p>
-            Luciana deseja realizar uma viagem de carro, porém luciana deseja conhecer a capital de cada estado por qual passar.
-            Informe qual o estado de origem de Luciana e qual o estado de destino, a aplicação irá se responsabilizar por dizer
-            qual será o menor trajeto, passando pelas capitais da origem ao destino desejado.
+            Luciana deseja realizar uma viagem de carro, porém luciana deseja
+            conhecer a capital de cada estado por qual passar. Informe qual o
+            estado de origem de Luciana e qual o estado de destino, a aplicação
+            irá se responsabilizar por dizer qual será o menor trajeto, passando
+            pelas capitais da origem ao destino desejado.
           </p>
         </div>
         <div className='row'>
@@ -78,7 +82,7 @@ function App() {
               map={Brazil}
               onChange={(values) => {
                 if (values.length > 2) {
-                  values.shift()
+                  values.shift();
                 }
                 setSelectedStages(values);
               }}
@@ -96,7 +100,7 @@ function App() {
             </ul>
 
             <div className='selected-stages-route'>
-            {state === CAN_RESET_STAGE && (
+              {state === CAN_RESET_STAGE && (
                 <table className='table table-hover'>
                   <thead>
                     <tr>
