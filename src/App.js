@@ -67,11 +67,17 @@ function App() {
             Projeto <span className='bold-text'>Viagem a Trabalho</span>{' '}
           </h1>
           <p>
-            Luciana deseja realizar uma viagem de carro, porém luciana deseja
-            conhecer a capital de cada estado por qual passar. Informe qual o
-            estado de origem de Luciana e qual o estado de destino, a aplicação
-            irá se responsabilizar por dizer qual será o menor trajeto, passando
-            pelas capitais da origem ao destino desejado.
+            Luciana foi promovida a nova gerente executiva na empresa o qual
+            trabalha. Essa empresa tem a cutura de que quando há um novo
+            gerente, ele tem que ir em uma filial escolhida para saber o
+            andamento das atividades e retirar métricas. No entanto, Luciana
+            quer mais! Como vai viajar de carro e sabe que todas as filiais
+            ficam nas capitais, ela deseja passar por todas as filiais dos
+            estados que passar, desde que esse percurso seja o menor
+            possível. Informe qual o estado de origem de Luciana e qual o estado
+            de destino. A aplicação irá se responsabilizar por dizer qual será o
+            menor trajeto, passando pelas capitais da origem ao destino
+            desejado.
           </p>
         </div>
         <div className='row'>
