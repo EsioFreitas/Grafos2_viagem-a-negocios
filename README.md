@@ -46,4 +46,4 @@ $ npm start
 
 1. Selecione 2 estados
 2. Selecione "Definir melhor percurso"
-3. Para fazer um novo ercurso, selecione "Fazer novo percurso"
+3. Para fazer um novo percurso, selecione "Fazer novo percurso"
