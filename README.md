@@ -41,7 +41,6 @@ $ yarn start
 $ npm install
 $ npm start
 ```
-
 ## Uso
 
 1. Selecione 2 estados
